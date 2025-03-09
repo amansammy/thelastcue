@@ -3266,7 +3266,6 @@ textarea.w-input, textarea.w-select {
 }
 
 .photos {
-  height: 100vh;
   padding: 100px;
 }
 
@@ -4003,7 +4002,6 @@ textarea.w-input, textarea.w-select {
 
 /* New styles to fix issues */
 .photos {
-  height: 100vh; /* Keep from Webflow */
   padding: 100px; /* Default from Webflow */
   overflow: hidden; /* Prevent section overflow */
 }
