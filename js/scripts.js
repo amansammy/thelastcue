@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const thumbnails = document.querySelectorAll('.thumbnail');
     let currentIndex = 0;
     const intervalTime = 10000; // 10 seconds per transition
+    let slideshowInterval = null; // Store the interval ID
 
     // Function to update main image
     function updateMainImage(index) {
@@ -27,17 +28,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500); // Match fade-out transition time
     }
 
-    // Auto-transition
+    // Start auto-transition
     function startSlideshow() {
-        setInterval(() => {
+        slideshowInterval = setInterval(() => {
             currentIndex = (currentIndex + 1) % thumbnails.length;
             updateMainImage(currentIndex);
         }, intervalTime);
     }
 
+    // Stop auto-transition
+    function stopSlideshow() {
+        if (slideshowInterval) {
+            clearInterval(slideshowInterval);
+            slideshowInterval = null; // Reset to allow restarting if needed
+        }
+    }
+
     // Thumbnail click event
     thumbnails.forEach((thumbnail, index) => {
         thumbnail.addEventListener('click', () => {
+            stopSlideshow(); // Stop the slideshow when a thumbnail is clicked
             updateMainImage(index);
         });
     });
