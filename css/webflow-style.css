@@ -4000,3 +4000,44 @@ textarea.w-input, textarea.w-select {
       height: 70px;
   }
 }
+
+/* New styles to fix issues */
+.photos {
+  height: 100vh; /* Keep from Webflow */
+  padding: 100px; /* Default from Webflow */
+  overflow: hidden; /* Prevent section overflow */
+}
+
+.thumbnail-grid-wrapper {
+  height: 100px; /* Match thumbnail height to fix vertical scroll */
+  overflow-y: hidden; /* Disable vertical scrolling */
+  white-space: nowrap; /* Ensure horizontal layout */
+}
+
+.thumbnail-grid {
+  height: 100%; /* Fill wrapper height */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .main-photo {
+      height: 300px;
+  }
+
+  .thumbnail {
+      width: 100px;
+      height: 70px;
+  }
+
+  .thumbnail-grid-wrapper {
+      height: 70px; /* Match reduced thumbnail height */
+  }
+
+  .photos {
+      padding: 20px; /* Reduce padding on mobile */
+  }
+
+  .photo-gallery {
+      padding: 0; /* Remove extra padding inside gallery */
+  }
+}
